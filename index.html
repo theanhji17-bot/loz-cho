@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nhạc sĩ — Portfolio & Album</title>
+  <meta name="description" content="Trang giới thiệu nhạc sĩ, tiểu sử, discography và các album mẫu." />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#7c3aed;
+      --glass: rgba(255,255,255,0.04);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#071023 0%, #071a2e 100%);color:#e6eef8;line-height:1.45}
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,var(--accent),#3b82f6);display:flex;align-items:center;justify-content:center;font-weight:700}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px}
+    nav a:hover{color:#fff}
+
+    .hero{display:flex;gap:28px;align-items:center;margin-top:18px}
+    .hero .photo{flex:0 0 320px;border-radius:14px;overflow:hidden;background:var(--glass);box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .hero img{width:100%;height:100%;display:block;object-fit:cover}
+    .hero .intro{flex:1}
+    h1{margin:0;font-size:32px;letter-spacing:-0.5px}
+    .role{color:var(--accent);font-weight:600;margin-top:6px}
+    p.lead{color:var(--muted);margin-top:12px}
+
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-top:28px}
+
+    .bio{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:12px}
+    .stats{display:flex;gap:12px;margin-top:12px}
+    .stat{background:var(--card);padding:10px;border-radius:10px;min-width:88px;text-align:center}
+    .stat strong{display:block;font-size:20px}
+    .albums{margin-top:22px}
+
+    /* Album cards */
+    .albums-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .album{background:var(--card);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:10px}
+    .album .cover{height:160px;border-radius:8px;overflow:hidden}
+    .album .meta{display:flex;justify-content:space-between;align-items:center}
+    .album h3{margin:0;font-size:16px}
+    .album p{margin:0;color:var(--muted);font-size:13px}
+    audio{width:100%;margin-top:6px}
+
+    /* sidebar */
+    aside .widget{background:var(--card);padding:14px;border-radius:12px;margin-bottom:14px}
+    .follow-btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#4f46e5);color:white;text-decoration:none}
+
+    footer{color:var(--muted);text-align:center;margin-top:36px;padding:18px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+      .hero{flex-direction:column;align-items:flex-start}
+      .hero .photo{width:100%;height:260px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">NT</div>
+        <div>
+          <div style="font-weight:700">Nguyễn Thu</div>
+          <div style="font-size:12px;color:var(--muted)">Nhạc sĩ & Nhà sản xuất</div>
+        </div>
+      </div>
+      <nav aria-label="chính">
+        <a href="#bio">Tiểu sử</a>
+        <a href="#albums">Album</a>
+        <a href="#contact">Liên hệ</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="photo" aria-hidden="true">
+        <!-- Thay src bằng ảnh nghệ sĩ của bạn -->
+        <img src="https://images.unsplash.com/photo-1511376777868-611b54f68947?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Ảnh nghệ sĩ">
+      </div>
+      <div class="intro">
+        <h1>Nguyễn Thu</h1>
+        <div class="role">Nhạc sĩ • Nhà sản xuất • Pianist</div>
+        <p class="lead">Nhạc sĩ chuyên sáng tác nhạc pop, alternative và nhạc phim. Trang này giới thiệu tiểu sử, album tiêu biểu và sample bài hát để nghe thử.</p>
+        <div style="margin-top:12px">
+          <a class="follow-btn" href="#albums">Nghe album</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <main>
+        <section id="bio" class="bio" aria-labelledby="bio-title">
+          <h2 id="bio-title">Tiểu sử</h2>
+          <p style="color:var(--muted);margin-top:8px">Nguyễn Thu sinh năm 1990, bắt đầu học piano từ khi 6 tuổi, tốt nghiệp Nhạc viện Hà Nội. Thu đã sáng tác cho nhiều nghệ sĩ indie và phim ngắn. Âm nhạc của Thu thường kết hợp giai điệu bắt tai với chất nền điện tử tinh tế.</p>
+
+          <div class="stats" role="list">
+            <div class="stat" role="listitem"><strong>5</strong><span style="color:var(--muted)">Album</span></div>
+            <div class="stat" role="listitem"><strong>120+</strong><span style="color:var(--muted)">Bài hát</span></div>
+            <div class="stat" role="listitem"><strong>10M+</strong><span style="color:var(--muted)">Lượt nghe</span></div>
+          </div>
+
+          <div class="albums" id="albums">
+            <h2>Album tiêu biểu</h2>
+            <div class="albums-grid">
+
+              <!-- Album 1 -->
+              <article class="album" aria-labelledby="a1-title">
+                <div class="cover"><img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Bìa album 1" style="width:100%;height:100%;object-fit:cover"></div>
+                <div class="meta">
+                  <h3 id="a1-title">Bình Minh Cuối Mùa</h3>
+                  <div style="font-size:13px;color:var(--muted)">2023</div>
+                </div>
+                <p>Album hòa âm nhẹ nhàng, kết hợp piano và electronic. Phù hợp nghe lúc bình minh.</p>
+                <!-- Thay src bằng đoạn sample audio của bạn -->
+                <audio controls preload="none">
+                  <source src="/samples/binh-minh-cuoi-mua-sample.mp3" type="audio/mpeg">
+                  Trình duyệt của bạn không hỗ trợ thẻ audio.
+                </audio>
+              </article>
+              <!-- Album 2 -->
+              <article class="album" aria-labelledby="a2-title">
+                <div class="cover"><img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Bìa album 2" style="width:100%;height:100%;object-fit:cover"></div>
+                <div class="meta">
+                  <h3 id="a2-title">Đêm Gọi</h3>
+                  <div style="font-size:13px;color:var(--muted)">2021</div>
+                </div>
+                <p>Những bản ballad đượm cảm xúc, hợp tác với ca sĩ indie Việt Nam.</p>
+                <audio controls preload="none">
+                  <source src="/samples/dem-goi-sample.mp3" type="audio/mpeg">
+                  Trình duyệt của bạn không hỗ trợ thẻ audio.
+                </audio>
+              </article>
+
+              <!-- Album 3 -->
+              <article class="album" aria-labelledby="a3-title">
+                <div class="cover"><img src="https://images.unsplash.com/photo-1506152983158-b0f0c5c0f0b7?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Bìa album 3" style="width:100%;height:100%;object-fit:cover"></div>
+                <div class="meta">
+                  <h3 id="a3-title">Hư Không</h3>
+                  <div style="font-size:13px;color:var(--muted)">2019</div>
+                </div>
+                <p>Khám phá không gian ambient, instrumental dành cho phim và quảng cáo.</p>
+                <audio controls preload="none">
+                  <source src="/samples/hu-khong-sample.mp3" type="audio/mpeg">
+                  Trình duyệt của bạn không hỗ trợ thẻ audio.
+                </audio>
+              </article>
+
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" style="margin-top:20px" aria-labelledby="contact-title">
+          <h2 id="contact-title">Liên hệ & Booking</h2>
+          <div style="background:var(--card);padding:12px;border-radius:10px;margin-top:10px;color:var(--muted)">
+            <p>Email: <a href="mailto:nguyenthu@example.com">nguyenthu@example.com</a></p>
+            <p>Booking: <a href="tel:+84900123456">+84 900 123 456</a></p>
+            <p>Hoặc gửi lời nhắn tại trang Facebook / Instagram.</p>
+          </div>
+        </section>
+
+      </main>
+
+      <aside>
+        <div class="widget">
+          <h3>Nghe nhanh</h3>
+          <p style="color:var(--muted);font-size:14px;margin-top:6px">Sample single: "Bình Minh"</p>
+          <audio controls preload="none" style="margin-top:8px">
+            <source src="/samples/binh-minh-single.mp3" type="audio/mpeg">
+            Trình duyệt của bạn không hỗ trợ thẻ audio.
+          </audio>
+        </div>
+
+        <div class="widget">
+          <h3>Theo dõi</h3>
+          <p style="color:var(--muted);font-size:13px">Spotify • Apple Music • YouTube • Bandcamp</p>
+          <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+            <a class="follow-btn" href="#">Spotify</a>
+            <a class="follow-btn" href="#">YouTube</a>
+          </div>
+        </div>
+
+        <div class="widget">
+          <h3>Tin nhanh</h3>
+          <p style="color:var(--muted);font-size:13px">Sắp có tour vào Q4 — cập nhật lịch biểu sớm.</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Thầy Khuong Depzaino.1 — All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    // Tự động cập nhật năm
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Tùy chọn: thêm feature để mở playlist hoặc modal tracklist
+    // Lưu ý: thay src audio sample bằng file thực tế hoặc url streaming
+  </script>
+</body>
+</html>
